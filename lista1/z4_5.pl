@@ -15,6 +15,7 @@ le(a, e).
 % trans
 le(a, d).
 
+% Helper predicate
 in_poset(X) :- le(X, _).
 in_poset(X) :- le(_, X).
 
@@ -43,16 +44,21 @@ least(X) :-
 
 %-----------------
 % Zadanie 5.
+reflexive :- forall(in_poset(X),le(X, X)).
+
+weak_antisymm :- forall(
+    (in_poset(X), in_poset(Y), le(X, Y), le(Y, X)),
+    X = Y
+).
+
+transitive :- forall(
+    (in_poset(X), in_poset(Y), in_poset(Z), 
+        le(X, Y), le(Y, Z)
+    ),
+    le(X, Z)
+).
 
 poset :-
-    forall(in_poset(X),le(X, X)),
-    forall(
-        (in_poset(X), in_poset(Y), le(X, Y), le(Y, X)),
-        X = Y
-    ),
-    forall(
-        (in_poset(X), in_poset(Y), in_poset(Z), 
-            le(X, Y), le(Y, Z)
-        ),
-        le(X, Z)
-    ).
+    reflexive,
+    weak_antisymm,
+    transitive.

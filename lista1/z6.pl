@@ -4,10 +4,18 @@ prime(Lo, Hi, X) :-
 
 check_prime(X) :- 
     SqrtX is floor(sqrt(X)),
-    check_prime(X, SqrtX, 2).
+    Rem is X mod 2, 
+    \+ (Rem = 0, X \= 2),
+    check_prime(X, SqrtX, 3).
 
 check_prime(X, Z, Y) :-
     Y =< Z,
     Rem is X mod Y, \+ Rem = 0,
-    check_prime(X, Z, Y+1).
+    check_prime(X, Z, Y+2).
 check_prime(_, Z, Y) :- Y > Z.
+
+% Presentation
+use_module(library(statistics)).
+
+prime_time(Lo, Hi, X) :-
+    time(prime(Lo, Hi, X)).

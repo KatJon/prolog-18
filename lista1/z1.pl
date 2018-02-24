@@ -32,7 +32,7 @@ siostra(X, Y) :-
     X \= Y.
 
 dziadek(X, Y) :- 
-    ojciec(X, Z),rodzic(Z, Y).
+    ojciec(X, Z), rodzic(Z, Y).
 
 rodzenstwo(X, Y) :- 
     rodzic(Z, X), rodzic(Z, Y), X \= Y.
