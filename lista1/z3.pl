@@ -23,6 +23,8 @@ right_rec(X, Y) :- left_rec(Y, X).
 below(X, Y) :- above(Y, X).
 below_rec(X, Y) :- above_rec(Y, X).
 
+higher(X, Y) :- above_rec(X, Y).
+
 higher(X, Y) :-
     above_rec(X, Z),
     (left_rec(Z, Y); right_rec(Z, Y)).
