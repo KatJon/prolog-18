@@ -1,13 +1,13 @@
-once_in(X, [X|T]) :-
+jednokrotnie(X, [X|T]) :-
     \+ member(X, T).
 
-once_in(X, [H|T]) :-
+jednokrotnie(X, [H|T]) :-
     X \= H,
-    once_in(X, T).
+    jednokrotnie(X, T).
 
-twice_in(X, [X|T]) :-
-    once_in(X, T).
+dwukrotnie(X, [X|T]) :-
+    jednokrotnie(X, T).
 
-twice_in(X, [H|T]) :-
+dwukrotnie(X, [H|T]) :-
     X \= H,
-    twice_in(X, T).
+    jednokrotnie(X, T).

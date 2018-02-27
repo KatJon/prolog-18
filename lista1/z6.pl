@@ -11,7 +11,8 @@ check_prime(X) :-
 check_prime(X, Z, Y) :-
     Y =< Z,
     Rem is X mod Y, \+ Rem = 0,
-    check_prime(X, Z, Y+2).
+    Y1 is Y +2,
+    check_prime(X, Z, Y1).
 check_prime(_, Z, Y) :- Y > Z.
 
 % Presentation
