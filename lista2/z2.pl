@@ -10,4 +10,4 @@ dwukrotnie(X, [X|T]) :-
 
 dwukrotnie(X, [H|T]) :-
     X \= H,
-    jednokrotnie(X, T).
+    dwukrotnie(X, T).
