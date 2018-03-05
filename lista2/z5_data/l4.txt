@@ -1,0 +1,49 @@
+?- time(lista(4, X)).
+% 30 inferences, 0.000 CPU in 0.000 seconds (81% CPU, 1428571 Lips)
+X = [1, 1, 2, 2, 3, 3, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (59% CPU, 846154 Lips)
+X = [1, 1, 2, 2, 3, 4, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (64% CPU, 1000000 Lips)
+X = [1, 1, 2, 3, 3, 2, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (66% CPU, 733333 Lips)
+X = [1, 1, 2, 4, 3, 2, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (63% CPU, 500000 Lips)
+X = [1, 1, 2, 3, 3, 4, 4, 2] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (62% CPU, 846154 Lips)
+X = [1, 1, 2, 4, 3, 3, 4, 2] ;
+% 17 inferences, 0.000 CPU in 0.000 seconds (64% CPU, 1062500 Lips)
+X = [1, 2, 2, 1, 3, 3, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (61% CPU, 785714 Lips)
+X = [1, 2, 2, 1, 3, 4, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (60% CPU, 933333 Lips)
+X = [1, 3, 2, 1, 3, 2, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (35% CPU, 733333 Lips)
+X = [1, 4, 2, 1, 3, 2, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (66% CPU, 875000 Lips)
+X = [1, 3, 2, 1, 3, 4, 4, 2] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (37% CPU, 611111 Lips)
+X = [1, 4, 2, 1, 3, 3, 4, 2] ;
+% 17 inferences, 0.000 CPU in 0.000 seconds (62% CPU, 1062500 Lips)
+X = [1, 2, 2, 3, 3, 1, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (64% CPU, 687500 Lips)
+X = [1, 2, 2, 4, 3, 1, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (36% CPU, 875000 Lips)
+X = [1, 3, 2, 2, 3, 1, 4, 4] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (60% CPU, 733333 Lips)
+X = [1, 4, 2, 2, 3, 1, 4, 3] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (66% CPU, 933333 Lips)
+X = [1, 3, 2, 4, 3, 1, 4, 2] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (60% CPU, 733333 Lips)
+X = [1, 4, 2, 3, 3, 1, 4, 2] ;
+% 17 inferences, 0.000 CPU in 0.000 seconds (65% CPU, 1000000 Lips)
+X = [1, 2, 2, 3, 3, 4, 4, 1] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (65% CPU, 846154 Lips)
+X = [1, 2, 2, 4, 3, 3, 4, 1] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (63% CPU, 933333 Lips)
+X = [1, 3, 2, 2, 3, 4, 4, 1] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (61% CPU, 785714 Lips)
+X = [1, 4, 2, 2, 3, 3, 4, 1] ;
+% 14 inferences, 0.000 CPU in 0.000 seconds (62% CPU, 1076923 Lips)
+X = [1, 3, 2, 4, 3, 2, 4, 1] ;
+% 11 inferences, 0.000 CPU in 0.000 seconds (56% CPU, 846154 Lips)
+X = [1, 4, 2, 3, 3, 2, 4, 1] ;

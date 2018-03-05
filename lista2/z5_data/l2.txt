@@ -1,0 +1,5 @@
+?- time(lista(2, X)).
+% 22 inferences, 0.000 CPU in 0.000 seconds (74% CPU, 956522 Lips)
+X = [1, 1, 2, 2] ;
+% 9 inferences, 0.000 CPU in 0.000 seconds (60% CPU, 750000 Lips)
+X = [1, 2, 2, 1] ;

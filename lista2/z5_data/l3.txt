@@ -1,0 +1,13 @@
+?- time(lista(3, X)).
+% 26 inferences, 0.000 CPU in 0.000 seconds (75% CPU, 1444444 Lips)
+X = [1, 1, 2, 2, 3, 3] ;
+% 10 inferences, 0.000 CPU in 0.000 seconds (59% CPU, 769231 Lips)
+X = [1, 1, 2, 3, 3, 2] ;
+% 13 inferences, 0.000 CPU in 0.000 seconds (55% CPU, 1083333 Lips)
+X = [1, 2, 2, 1, 3, 3] ;
+% 10 inferences, 0.000 CPU in 0.000 seconds (57% CPU, 769231 Lips)
+X = [1, 3, 2, 1, 3, 2] ;
+% 13 inferences, 0.000 CPU in 0.000 seconds (64% CPU, 812500 Lips)
+X = [1, 2, 2, 3, 3, 1] ;
+% 10 inferences, 0.000 CPU in 0.000 seconds (59% CPU, 769231 Lips)
+X = [1, 3, 2, 2, 3, 1] ;

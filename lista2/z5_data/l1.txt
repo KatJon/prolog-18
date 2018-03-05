@@ -1,0 +1,3 @@
+?- time(lista(1, X)).
+% 19 inferences, 0.000 CPU in 0.000 seconds (76% CPU, 1461538 Lips)
+X = [1, 1] ;
