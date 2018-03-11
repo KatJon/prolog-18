@@ -1,34 +1,36 @@
-ma(ala, kot).
-ma(adam, pies).
-ma(jurek, owoc).
+has(ala, kot).
+has(adam, pies).
+has(jurek, owoc).
 
-daje(1, ala, kot, adam).
-daje(2, adam, pies, ala).
-daje(3, jurek, pies, adam).
+% z ~= 0
+% t(z) ~= 1
+% itd.
 
-has(0, Kto, Co) :- ma(Kto, Co).
-has(T, Kto, Co) :-
-    number(T),
-    T > 0,
-    T1 is T - 1,
-    has(T1, Kto, Co), 
-    \+ daje(T, Kto, Co, _).
-has(T, Kto, Co) :-
-    number(T),
-    T > 0,
-    T1 is T - 1,
-    has(T1, Inny, Co),
-    daje(T, Inny, Co, Kto).
+gives(t(z), ala, kot, adam).
+gives(t(t(z)), adam, pies, ala).
+gives(t(t(t(z))), jurek, owoc, adam).
 
-max_daje(T) :-
-    daje(T, _, _, _),
-    \+ (
-        daje(T1, _, _, _),
-        T1 > T    
-    ).
+is_moment(z).
+is_moment(t(T)) :- is_moment(T).
 
-ma(T, X, Y) :-
-    max_daje(MaxT),
-    between(0, MaxT, T),
+moment_to_nat(T, Nat) :-
+    moment_to_nat(T, 0, Nat).
+
+moment_to_nat(z, Acc, Acc).
+moment_to_nat(t(T), Acc, Nat) :-
+    Next is Acc + 1,
+    moment_to_nat(T, Next, Nat).
+
+has(z, Kto, Co) :- has(Kto, Co).
+
+has(t(T), Kto, Co) :-
+    has(T, Kto, Co),
+    \+ gives(t(T), Kto, Co, _).
+
+has(t(T), Kto, Co) :-
+    gives(t(T), Inny, Co, Kto),
+    has(T, Inny, Co).
+
+has_q(Nat, X, Y) :-
+    moment_to_nat(T, Nat),
     has(T, X, Y).
-    
