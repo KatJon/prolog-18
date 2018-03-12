@@ -1,13 +1,7 @@
-jednokrotnie(X, [X|T]) :-
-    \+ member(X, T).
+jednokrotnie(X, L) :-
+    select(X, L, TL),
+    \+ member(X, TL).
 
-jednokrotnie(X, [H|T]) :-
-    X \= H,
-    jednokrotnie(X, T).
-
-dwukrotnie(X, [X|T]) :-
-    jednokrotnie(X, T).
-
-dwukrotnie(X, [H|T]) :-
-    X \= H,
-    dwukrotnie(X, T).
+dwukrotnie(X, L) :-
+    select(X, L, TL),
+    jednokrotnie(X, TL).
