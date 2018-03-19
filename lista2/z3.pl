@@ -7,7 +7,6 @@ arc(c, d).
 osiagalny(X, Y) :- droga(X, Y, [X]).
 
 droga(X, Y, _) :- arc(X, Y).
-
 droga(X, Y, Visited) :-
     arc(X, Z),
     \+ member(Z, Visited),
