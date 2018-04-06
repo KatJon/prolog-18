@@ -26,7 +26,7 @@ sasiad(A, B) :- na_lewo(A, B).
 einstein(Kto) :-
     Norweg = 1, % R1
     Mleko = 3, % R8
-    Niebieski = 2,% sasiad(Norweg, Niebieski), % R12
+    Niebieski = 2, % sasiad(Norweg, Niebieski), % R12
     Anglik = Czerwony, % R2
     Dunczyk = Herbata, % R4
     Zolty = Cygaro, % R6
