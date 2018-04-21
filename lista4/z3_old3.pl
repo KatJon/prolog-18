@@ -1,13 +1,44 @@
 base_matches(List) :- numlist(1, 24, List).
 
-remove_k(0, X, X).
-remove_k(K, [_|L1], L2) :-
-    K > 0,
+select_k(0, L, L).
+select_k(K, L, Res) :-
+    select(_, L, X),
     K1 is K - 1,
-    remove_k(K1, L1, L2).
-remove_k(K, [X|L1], [X|L2]) :-
-    K > 0,
-    remove_k(K, L1, L2).
+    select_k(K1, X, Res).
+    
+
+zapalki(K, (duze(D), srednie(S), male(M))) :-
+    base_matches(Base),
+
+    select_k(K, Base, L),
+
+    write(a),
+    take_bigs(D, Bigs),
+    take_mids(S, Mids),
+    take_smalls(M, Smalls),
+
+    intersection(Bigs, L, Bigs),
+    intersection(Mids, L, Mids),
+    intersection(Smalls, L, Smalls),
+    write_matches(L).
+
+take_bigs(D, Res) :-
+    big_squares(List),
+    subseq(Bigs, List),
+    length(Bigs, D),
+    flat_union(Bigs, Res).
+
+take_mids(S, Res) :-
+    mid_squares(List),
+    subseq(Mids, List),
+    length(Mids, S),
+    flat_union(Mids, Res).
+
+take_smalls(M, Res) :-
+    small_squares(List),
+    subseq(Smalls, List),
+    length(Smalls, M),
+    flat_union(Smalls, Res).
 
 subseq([], _).
 subseq([H|Xs], [H|Ys]) :-
@@ -23,32 +54,6 @@ flat_union([], Res, Res).
 flat_union([H|T], Res, Bag) :-
     union(H, Bag, X),
     flat_union(T, Res, X).
-
-zapalki(K, D, S, M) :-
-    base_matches(Base),
-    remove_k(K, Base, L),
-
-    big_squares(BS),
-    mid_squares(MS),
-    small_squares(SS),
-
-    has_squares(D, BS, L),
-    has_squares(S, MS, L),
-    has_squares(M, SS, L),
-
-    write_matches(L).
-
-has_squares(0, [], _).
-has_squares(0, Squares, List) :-
-    member(S, Squares),
-    \+ intersection(S, List, S).
-    
-has_squares(K, Squares, List) :-
-    K > 0,
-    select(S, Squares, NextSq),
-    intersection(S, List, S),
-    K1 is K - 1,
-    has_squares(K1, NextSq, List).
 
 big_squares(Bigs) :-
     Bigs = [
