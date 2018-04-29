@@ -53,7 +53,8 @@ tokenize(In, [id(Id)|Tokens]) :-
 tokenize(In, [int(Int)|Tokens]) :-
     get_integer(In, Int, Rem),
     tokenize(Rem, Tokens).
-tokenize([_|Xs], Tokens) :-
+tokenize([H|Xs], Tokens) :-
+    write('Unexpected char: "'), write(H), write('"'), nl,
     tokenize(Xs, Tokens).
 
 get_identifier(In, Ret, Rem) :-

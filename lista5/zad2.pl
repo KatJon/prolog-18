@@ -14,6 +14,10 @@ zla(P) :-
 
 board(N) :-
     hetmany(N, Board),
+    print_board(Board).
+
+print_board(Board) :-
+    length(Board, N),
     starting_color(N, Color),
     print_board(N, N, Board, Color).
 
