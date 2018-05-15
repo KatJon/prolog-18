@@ -1,0 +1,13 @@
+read N;
+U := 1;
+R := 1;
+while R < N do
+  V := U;
+  S := 1;
+  while S =< R do
+    U := U + V;
+    S := S + 1;
+  od;
+  R := R + 1;
+od;
+write U;

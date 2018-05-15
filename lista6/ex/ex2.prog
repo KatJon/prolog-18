@@ -1,0 +1,10 @@
+read M;
+read N;
+D := 0;
+R := M;
+while R > N do
+  D := D + 1;
+  R := R - N;
+od;
+write D;
+write R;

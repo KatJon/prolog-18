@@ -1,0 +1,9 @@
+read A;
+read B;
+X := A;
+Y := B;
+while Y > 0 do
+  X := X + 1;
+  Y := Y - 1;
+od;
+write X;
