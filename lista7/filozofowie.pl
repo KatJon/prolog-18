@@ -3,15 +3,31 @@
 ]).
 
 filozofowie :-
-    run(_).
+    mutex_create(F1),
+    mutex_create(F2),
+    mutex_create(F3),
+    mutex_create(F4),
+    mutex_create(F5),
     
-run([A,B,C,D,E]) :-
-    thread_create(philosopher(p1), A),
-    thread_create(philosopher(p2), B),
-    thread_create(philosopher(p3), C),
-    thread_create(philosopher(p4), D),
-    thread_create(philosopher(p5), E).
+    thread_create(philosopher(1, F1, F2), _),
+    thread_create(philosopher(2, F2, F3), _),
+    thread_create(philosopher(3, F3, F4), _),
+    thread_create(philosopher(4, F4, F5), _),
+    thread_create(philosopher(5, F5, F1), _).
 
-philosopher(X) :-
-    write(X),
-    philosopher(X).
+philosopher(X,  L, R) :-
+    format('[~w] mysli~n', [X]),
+    repeat,
+        format('[~w] chce prawy widelec~n', [X]),
+        mutex_trylock(R),
+    format('[~w] podniósł prawy widelec~n', [X]),
+    repeat,
+        format('[~w] chce lewy widelec~n', [X]),
+        mutex_trylock(L),
+    format('[~w] podniósł lewy widelec~n', [X]),
+    format('[~w] je~n', [X]),
+    mutex_unlock(R),
+    format('[~w] odłożył prawy widelec~n', [X]),
+    mutex_unlock(L),
+    format('[~w] odłożył lewy widelec~n', [X]),   
+    philosopher(X, L, R).
