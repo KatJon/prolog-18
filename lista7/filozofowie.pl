@@ -15,15 +15,13 @@ filozofowie :-
     thread_create(philosopher(4, F4, F5), _),
     thread_create(philosopher(5, F5, F1), _).
 
-philosopher(X,  L, R) :-
+philosopher(X, L, R) :-
     format('[~w] mysli~n', [X]),
-    repeat,
-        format('[~w] chce prawy widelec~n', [X]),
-        mutex_trylock(R),
+    format('[~w] chce prawy widelec~n', [X]),
+    mutex_lock(R),
     format('[~w] podniósł prawy widelec~n', [X]),
-    repeat,
-        format('[~w] chce lewy widelec~n', [X]),
-        mutex_trylock(L),
+    format('[~w] chce lewy widelec~n', [X]),
+    mutex_lock(L),
     format('[~w] podniósł lewy widelec~n', [X]),
     format('[~w] je~n', [X]),
     mutex_unlock(R),
